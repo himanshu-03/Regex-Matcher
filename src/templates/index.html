@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regex Matcher</title>
+    <style>
+        body {
+            background-image: url("https://miro.medium.com/max/1400/0*IsFD2Blt1CG9iHTk");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        
+        form {
+            width: 70%;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #ccc;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            border: none;
+            width:75%;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 5px #ccc;
+            font-size: 16px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            width:350px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="reset"] {
+            background-color: #ed1b17;
+            width:350px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #bd2222;
+        }
+
+        h2 {
+            margin-top: 50px;
+            font-size: 32px;
+            text-align: center;
+            animation: slide-down 0.5s ease-in-out;
+        }
+
+        p {
+            font-size: 24px;
+            margin-bottom: 10px;
+            animation: fade-in 0.5s ease-in-out;
+        }
+
+        @keyframes slide-down {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            margin: auto;
+            position: relative;
+            align-items: center;
+            width:50%;
+            background-color: #fff;
+            opacity: 90%;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div class = "container">
+        <br>
+        <h2>Regex Finder</h2>
+        <form method="POST" id="myForm">
+            <label for="test_string">Test String:</label>
+            <textarea id="test_string" name="test_string" rows="10" cols="50" required></textarea><br>
+            <label for="regex">Regex:</label>
+            <textarea type="text" id="regex" name="regex" rows = "2" cols = "50" value="" required></textarea>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+
+        <center>
+        <p><b>Test String:</b> {{ request.form.test_string }}</p>
+        <p><b>Regex:</b> {{ request.form.regex }}</p>
+        <h2>Matches:</h2>
+        {% for match in matches %}
+        <p>Match: {{ match[0] }}, Start: {{ match[1] }}, End: {{ match[2] }}</p>
+        {% endfor %}
+        </center>
+        <br>
+    </div>
+</body>
+</html>
+
