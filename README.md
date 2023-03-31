@@ -1,5 +1,8 @@
 # Regex-Matcher
 
+A regex matcher website is a web application that allows users to enter a regular expression and a text string to search for matches. Flask is a Python web framework that allows developers to build web applications quickly and easily. The app can use regular expression libraries like Python's `re` module to search for matches and display them to the user.
+
+
 ## 🪪 License
 
 You may use this project freely at your own risk. See [LICENSE](https://choosealicense.com/licenses/mit/).
